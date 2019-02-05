@@ -1,0 +1,6 @@
+framework module Pods_TesteiOSv2_VitorNeves {
+  umbrella header "Pods-TesteiOSv2-VitorNeves-umbrella.h"
+
+  export *
+  module * { export * }
+}
