@@ -8,8 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		10EB4EEA6DABA17EFA371FD7 /* Pods_TesteiOSv2_VitorNevesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 892DAF2AB4AEE13FCDE658FD /* Pods_TesteiOSv2_VitorNevesTests.framework */; };
+		59414D6E222D349700C61B87 /* LocationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D68222D349700C61B87 /* LocationPresenter.swift */; };
+		59414D6F222D349700C61B87 /* LocationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D69222D349700C61B87 /* LocationWorker.swift */; };
+		59414D70222D349700C61B87 /* LocationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D6A222D349700C61B87 /* LocationRouter.swift */; };
+		59414D71222D349700C61B87 /* LocationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D6B222D349700C61B87 /* LocationModels.swift */; };
+		59414D72222D349700C61B87 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D6C222D349700C61B87 /* LocationViewController.swift */; };
+		59414D73222D349700C61B87 /* LocationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D6D222D349700C61B87 /* LocationInteractor.swift */; };
+		59414D85222D804D00C61B87 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D84222D804D00C61B87 /* UIViewControllerExtension.swift */; };
+		59414D8E222DBE1200C61B87 /* santaderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D87222DBE1200C61B87 /* santaderPresenter.swift */; };
+		59414D8F222DBE1200C61B87 /* santaderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D88222DBE1200C61B87 /* santaderRequest.swift */; };
+		59414D90222DBE1200C61B87 /* santaderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D89222DBE1200C61B87 /* santaderRouter.swift */; };
+		59414D91222DBE1200C61B87 /* santaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D8A222DBE1200C61B87 /* santaderViewController.swift */; };
+		59414D92222DBE1200C61B87 /* santaderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D8B222DBE1200C61B87 /* santaderRepository.swift */; };
+		59414D93222DBE1200C61B87 /* santaderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D8C222DBE1200C61B87 /* santaderInteractor.swift */; };
+		59414D94222DBE1200C61B87 /* santader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D8D222DBE1200C61B87 /* santader.swift */; };
+		59414D96222DC0DB00C61B87 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D95222DC0DB00C61B87 /* StringExtension.swift */; };
+		59414D98222DC30B00C61B87 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D97222DC30B00C61B87 /* Reachability.swift */; };
+		59414D9C222DD02F00C61B87 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D9B222DD02F00C61B87 /* Constants.swift */; };
+		59414D9F222DD13400C61B87 /* RepositoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D9E222DD13400C61B87 /* RepositoryResponse.swift */; };
+		59414DA1222DD2C900C61B87 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414DA0222DD2C900C61B87 /* RequestManager.swift */; };
 		59DF3CD72209C82E0008D5A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DF3CD62209C82E0008D5A1 /* AppDelegate.swift */; };
-		59DF3CD92209C82E0008D5A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DF3CD82209C82E0008D5A1 /* ViewController.swift */; };
 		59DF3CDC2209C82E0008D5A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59DF3CDA2209C82E0008D5A1 /* Main.storyboard */; };
 		59DF3CDE2209C82F0008D5A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59DF3CDD2209C82F0008D5A1 /* Assets.xcassets */; };
 		59DF3CE12209C82F0008D5A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59DF3CDF2209C82F0008D5A1 /* LaunchScreen.storyboard */; };
@@ -42,9 +60,27 @@
 		23962CFA9FC0EC3C194A5D5D /* Pods-TesteiOSv2-VitorNeves.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TesteiOSv2-VitorNeves.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TesteiOSv2-VitorNeves/Pods-TesteiOSv2-VitorNeves.debug.xcconfig"; sourceTree = "<group>"; };
 		4E22AF5A3B4F3DA1DB0EB2BD /* Pods-TesteiOSv2-VitorNevesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TesteiOSv2-VitorNevesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TesteiOSv2-VitorNevesTests/Pods-TesteiOSv2-VitorNevesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4EE3F12AA2C811831DE2844F /* Pods-TesteiOSv2-VitorNevesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TesteiOSv2-VitorNevesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TesteiOSv2-VitorNevesTests/Pods-TesteiOSv2-VitorNevesTests.release.xcconfig"; sourceTree = "<group>"; };
+		59414D68222D349700C61B87 /* LocationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPresenter.swift; sourceTree = "<group>"; };
+		59414D69222D349700C61B87 /* LocationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationWorker.swift; sourceTree = "<group>"; };
+		59414D6A222D349700C61B87 /* LocationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRouter.swift; sourceTree = "<group>"; };
+		59414D6B222D349700C61B87 /* LocationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModels.swift; sourceTree = "<group>"; };
+		59414D6C222D349700C61B87 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		59414D6D222D349700C61B87 /* LocationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInteractor.swift; sourceTree = "<group>"; };
+		59414D84222D804D00C61B87 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		59414D87222DBE1200C61B87 /* santaderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = santaderPresenter.swift; sourceTree = "<group>"; };
+		59414D88222DBE1200C61B87 /* santaderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = santaderRequest.swift; sourceTree = "<group>"; };
+		59414D89222DBE1200C61B87 /* santaderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = santaderRouter.swift; sourceTree = "<group>"; };
+		59414D8A222DBE1200C61B87 /* santaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = santaderViewController.swift; sourceTree = "<group>"; };
+		59414D8B222DBE1200C61B87 /* santaderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = santaderRepository.swift; sourceTree = "<group>"; };
+		59414D8C222DBE1200C61B87 /* santaderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = santaderInteractor.swift; sourceTree = "<group>"; };
+		59414D8D222DBE1200C61B87 /* santader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = santader.swift; sourceTree = "<group>"; };
+		59414D95222DC0DB00C61B87 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		59414D97222DC30B00C61B87 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		59414D9B222DD02F00C61B87 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		59414D9E222DD13400C61B87 /* RepositoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryResponse.swift; sourceTree = "<group>"; };
+		59414DA0222DD2C900C61B87 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		59DF3CD32209C82E0008D5A1 /* TesteiOSv2-VitorNeves.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TesteiOSv2-VitorNeves.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59DF3CD62209C82E0008D5A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		59DF3CD82209C82E0008D5A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		59DF3CDB2209C82E0008D5A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		59DF3CDD2209C82F0008D5A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59DF3CE02209C82F0008D5A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -99,6 +135,79 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		59414D5A222D337400C61B87 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				59414D86222DBDFD00C61B87 /* satander */,
+				59414D5B222D338500C61B87 /* Login */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		59414D5B222D338500C61B87 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				59414D68222D349700C61B87 /* LocationPresenter.swift */,
+				59414D69222D349700C61B87 /* LocationWorker.swift */,
+				59414D6A222D349700C61B87 /* LocationRouter.swift */,
+				59414D6B222D349700C61B87 /* LocationModels.swift */,
+				59414D6C222D349700C61B87 /* LocationViewController.swift */,
+				59414D6D222D349700C61B87 /* LocationInteractor.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		59414D7E222D7F7600C61B87 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				59414D7F222D7F8100C61B87 /* Extensions */,
+				59414D9D222DD0CC00C61B87 /* Repository */,
+				59414D9A222DD02400C61B87 /* Util */,
+				59414D97222DC30B00C61B87 /* Reachability.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		59414D7F222D7F8100C61B87 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				59414D84222D804D00C61B87 /* UIViewControllerExtension.swift */,
+				59414D95222DC0DB00C61B87 /* StringExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		59414D86222DBDFD00C61B87 /* satander */ = {
+			isa = PBXGroup;
+			children = (
+				59414D87222DBE1200C61B87 /* santaderPresenter.swift */,
+				59414D88222DBE1200C61B87 /* santaderRequest.swift */,
+				59414D89222DBE1200C61B87 /* santaderRouter.swift */,
+				59414D8A222DBE1200C61B87 /* santaderViewController.swift */,
+				59414D8B222DBE1200C61B87 /* santaderRepository.swift */,
+				59414D8C222DBE1200C61B87 /* santaderInteractor.swift */,
+				59414D8D222DBE1200C61B87 /* santader.swift */,
+			);
+			path = satander;
+			sourceTree = "<group>";
+		};
+		59414D9A222DD02400C61B87 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				59414D9B222DD02F00C61B87 /* Constants.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		59414D9D222DD0CC00C61B87 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				59414D9E222DD13400C61B87 /* RepositoryResponse.swift */,
+				59414DA0222DD2C900C61B87 /* RequestManager.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		59DF3CCA2209C82E0008D5A1 = {
 			isa = PBXGroup;
 			children = (
@@ -124,11 +233,12 @@
 		59DF3CD52209C82E0008D5A1 /* TesteiOSv2-VitorNeves */ = {
 			isa = PBXGroup;
 			children = (
+				59414D7E222D7F7600C61B87 /* Common */,
+				59414D5A222D337400C61B87 /* Scenes */,
 				59DF3CD62209C82E0008D5A1 /* AppDelegate.swift */,
-				59DF3CD82209C82E0008D5A1 /* ViewController.swift */,
 				59DF3CDA2209C82E0008D5A1 /* Main.storyboard */,
-				59DF3CDD2209C82F0008D5A1 /* Assets.xcassets */,
 				59DF3CDF2209C82F0008D5A1 /* LaunchScreen.storyboard */,
+				59DF3CDD2209C82F0008D5A1 /* Assets.xcassets */,
 				59DF3CE22209C82F0008D5A1 /* Info.plist */,
 			);
 			path = "TesteiOSv2-VitorNeves";
@@ -306,12 +416,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TesteiOSv2-VitorNeves/Pods-TesteiOSv2-VitorNeves-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -391,8 +503,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59DF3CD92209C82E0008D5A1 /* ViewController.swift in Sources */,
+				59414D9F222DD13400C61B87 /* RepositoryResponse.swift in Sources */,
+				59414D93222DBE1200C61B87 /* santaderInteractor.swift in Sources */,
+				59414D72222D349700C61B87 /* LocationViewController.swift in Sources */,
+				59414D92222DBE1200C61B87 /* santaderRepository.swift in Sources */,
+				59414D71222D349700C61B87 /* LocationModels.swift in Sources */,
+				59414D96222DC0DB00C61B87 /* StringExtension.swift in Sources */,
+				59414D6E222D349700C61B87 /* LocationPresenter.swift in Sources */,
+				59414D98222DC30B00C61B87 /* Reachability.swift in Sources */,
+				59414D8F222DBE1200C61B87 /* santaderRequest.swift in Sources */,
+				59414D8E222DBE1200C61B87 /* santaderPresenter.swift in Sources */,
+				59414D70222D349700C61B87 /* LocationRouter.swift in Sources */,
+				59414D85222D804D00C61B87 /* UIViewControllerExtension.swift in Sources */,
+				59414D94222DBE1200C61B87 /* santader.swift in Sources */,
+				59414D6F222D349700C61B87 /* LocationWorker.swift in Sources */,
+				59414D91222DBE1200C61B87 /* santaderViewController.swift in Sources */,
+				59414DA1222DD2C900C61B87 /* RequestManager.swift in Sources */,
+				59414D90222DBE1200C61B87 /* santaderRouter.swift in Sources */,
 				59DF3CD72209C82E0008D5A1 /* AppDelegate.swift in Sources */,
+				59414D73222D349700C61B87 /* LocationInteractor.swift in Sources */,
+				59414D9C222DD02F00C61B87 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
