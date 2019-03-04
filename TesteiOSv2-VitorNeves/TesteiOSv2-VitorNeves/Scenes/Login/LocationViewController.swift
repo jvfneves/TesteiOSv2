@@ -71,7 +71,6 @@ class LocationViewController: UIViewController, LocationDisplayLogic
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        doSomething()
     }
 
     // MARK: - Do something
@@ -81,8 +80,9 @@ class LocationViewController: UIViewController, LocationDisplayLogic
 
     func validLogin(_ userAccount: Location.UserAccount){
         self.dismissHUD()
-        //self.passwordField.text = ""
-        self.performSegue(withIdentifier: "Currency", sender: nil)
+        self.passwordField.text = ""
+        print("FOI");
+        //self.performSegue(withIdentifier: "Statements", sender: nil)
     }
     
     func displayError(_ error: Location.Error){

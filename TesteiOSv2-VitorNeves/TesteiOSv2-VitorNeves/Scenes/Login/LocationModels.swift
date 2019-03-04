@@ -16,7 +16,7 @@ struct Location {
     
     struct Login {
         
-        struct Request{
+        struct Request {
             var user: String?
             var password: String?
         }

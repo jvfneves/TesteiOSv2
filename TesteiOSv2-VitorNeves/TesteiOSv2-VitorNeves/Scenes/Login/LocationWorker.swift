@@ -17,8 +17,19 @@ typealias loginResponseHandler = (_ response:Location.Login.Response) ->()
 
 class LocationWorker
 {
+    
+//    static func getBank(onSuccess: @escaping (RepositoryResponse<[Bank]>?) -> Void, onFailure: @escaping (Error) -> Void ) {
+//        RequestManager.shared.get("\(Bank.endPoint)", model: RepositoryResponse<[Bank]>.self, onSuccess: { (result) in
+//            onSuccess(result)
+//        }, onFailure: { (error) in
+//            print("error: \(String(describing: error))")
+//            onFailure(error)
+//        })
+//    }
+    
     func login(user:String!, password:String!, responseRequest:@escaping(loginResponseHandler)) {
         if verificaInternet() {
+            
             Alamofire.request(Endpoints.Bank.Login.url,
                               method: .post,
                               parameters: ["user":user, "password":password],
