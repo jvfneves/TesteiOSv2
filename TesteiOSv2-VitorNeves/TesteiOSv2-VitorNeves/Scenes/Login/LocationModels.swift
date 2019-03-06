@@ -28,12 +28,20 @@ struct Location {
         
     }
     
-    struct UserAccount {
+    class UserAccount : NSObject {
         var userId = 0
-        var name: String
-        var bankAccount: String
-        var agency: String
-        var balance: Float64
+        var name: String = ""
+        var bankAccount: String = ""
+        var agency: String = ""
+        var balance: Float64 = 0.0
+        
+        init(userId: Int, name: String, bankAccount: String, agency: String, balance: Float64) {
+            self.userId = userId
+            self.name = name
+            self.bankAccount = bankAccount
+            self.agency = agency
+            self.balance = balance
+        }
     }
     
     struct Error {

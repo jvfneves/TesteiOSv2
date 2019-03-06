@@ -8,6 +8,7 @@ target 'TesteiOSv2-VitorNeves' do
   # Pods for TesteiOSv2-VitorNeves
     pod 'Alamofire', '~> 4.7'
     pod 'SVProgressHUD'
+    pod 'Tailor'
 
   target 'TesteiOSv2-VitorNevesTests' do
     inherit! :search_paths

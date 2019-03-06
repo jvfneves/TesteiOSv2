@@ -54,23 +54,12 @@ class LocationViewController: UIViewController, LocationDisplayLogic
         router.dataStore = interactor
     }
 
-    // MARK: - Routing
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
-    }
-
     // MARK: - View lifecycle
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.userField.becomeFirstResponder()
     }
 
     // MARK: - Do something
@@ -80,9 +69,7 @@ class LocationViewController: UIViewController, LocationDisplayLogic
 
     func validLogin(_ userAccount: Location.UserAccount){
         self.dismissHUD()
-        self.passwordField.text = ""
-        print("FOI");
-        //self.performSegue(withIdentifier: "Statements", sender: nil)
+        router?.goToCurrency(userAccount: userAccount)
     }
     
     func displayError(_ error: Location.Error){

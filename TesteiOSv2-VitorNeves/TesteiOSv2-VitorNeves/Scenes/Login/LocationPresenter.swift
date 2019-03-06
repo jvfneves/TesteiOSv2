@@ -14,19 +14,19 @@ import UIKit
 
 protocol LocationPresentationLogic
 {
-  func presentLoginResults(response: Location.Login.Response)
+    func presentLoginResults(response: Location.Login.Response)
 }
 
 class LocationPresenter: LocationPresentationLogic
 {
-  weak var viewController: LocationDisplayLogic?
+    weak var viewController: LocationDisplayLogic?
   
-  func presentLoginResults(response: Location.Login.Response)
-  {
-    if response.userAccount != nil {
-        viewController?.validLogin(response.userAccount!)
-    } else {
-        viewController?.displayError(response.error!)
+    func presentLoginResults(response: Location.Login.Response)
+    {
+        if response.userAccount != nil {
+            viewController?.validLogin(response.userAccount!)
+        } else {
+            viewController?.displayError(response.error!)
+        }
     }
-  }
 }

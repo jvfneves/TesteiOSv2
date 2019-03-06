@@ -14,47 +14,33 @@ import UIKit
 
 @objc protocol LocationRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func goToCurrency(userAccount: Location.UserAccount)
 }
 
 protocol LocationDataPassing
 {
-  var dataStore: LocationDataStore? { get }
+    var dataStore: LocationDataStore? { get }
 }
 
 class LocationRouter: NSObject, LocationRoutingLogic, LocationDataPassing
 {
-  weak var viewController: LocationViewController?
-  var dataStore: LocationDataStore?
-  
-  // MARK: Routing
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
-
-  // MARK: Navigation
-  
-  //func navigateToSomewhere(source: LocationViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
-  
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: LocationDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+    weak var viewController: LocationViewController?
+    var dataStore: LocationDataStore?
+    let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+    
+    // MARK: - Routing
+    
+    func goToCurrency(userAccount: Location.UserAccount) {
+        guard let destinationVC = mainStoryBoard.instantiateViewController(withIdentifier: "CurrencyViewController") as? CurrencyViewController else {
+            return
+        }
+        var destinationDS = destinationVC.router!.dataStore!
+        passDataToSomewhere(source: dataStore!, destination: &destinationDS)
+        destinationVC.modalTransitionStyle = .flipHorizontal
+        viewController?.present(destinationVC, animated: true, completion: nil)
+    }
+    
+    func passDataToSomewhere(source: LocationDataStore, destination: inout CurrencyDataStore) {
+        destination.userAccount = source.userAccount
+    }
 }
