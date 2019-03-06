@@ -81,9 +81,12 @@ class LocationViewController: UIViewController, LocationDisplayLogic
         let user = self.userField.text!
         let password = self.passwordField.text!
         
-        if user.isNumeric && !user.isValidCPF() {
-            self.showAlert(title: "Bank", message: "Usuário informado é inválido.")
-            return false
+        if user.isNumeric {
+            if !user.isValidCPF(){
+                self.showAlert(title: "Bank", message: "CPF informado é inválido.")
+                return false
+            }
+            
         } else if !user.isValidEmail() {
             self.showAlert(title: "Bank", message: "Usuário informado é inválido.")
             return false

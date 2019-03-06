@@ -11,9 +11,9 @@ import Foundation
 //typealias ModelCodable = Model & Entity & Codable
 typealias ModelCodable = Model & Entity & Codable
 
-//protocol Entity : Codable {
-//    static var endPoint: String { get }
-//}
+protocol Entity : Codable {
+    static var endPoint: String { get }
+}
 
 protocol Model: Codable {
     func toRegisterDictionary() -> [String : Any]
