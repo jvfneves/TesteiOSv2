@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		10EB4EEA6DABA17EFA371FD7 /* Pods_TesteiOSv2_VitorNevesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 892DAF2AB4AEE13FCDE658FD /* Pods_TesteiOSv2_VitorNevesTests.framework */; };
 		592943A52230518B00A61DDE /* RoundedViewWithShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592943A42230518B00A61DDE /* RoundedViewWithShadow.swift */; };
+		592943A82230664900A61DDE /* User.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 592943A62230664900A61DDE /* User.xcdatamodeld */; };
+		592943AB223068AD00A61DDE /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592943AA223068AD00A61DDE /* CoreDataStack.swift */; };
 		593468DE222EFCEA003FF2D7 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593468DD222EFCEA003FF2D7 /* DateExtensions.swift */; };
 		59414D6E222D349700C61B87 /* LocationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D68222D349700C61B87 /* LocationPresenter.swift */; };
 		59414D6F222D349700C61B87 /* LocationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D69222D349700C61B87 /* LocationWorker.swift */; };
@@ -68,6 +70,8 @@
 		4E22AF5A3B4F3DA1DB0EB2BD /* Pods-TesteiOSv2-VitorNevesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TesteiOSv2-VitorNevesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TesteiOSv2-VitorNevesTests/Pods-TesteiOSv2-VitorNevesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4EE3F12AA2C811831DE2844F /* Pods-TesteiOSv2-VitorNevesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TesteiOSv2-VitorNevesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TesteiOSv2-VitorNevesTests/Pods-TesteiOSv2-VitorNevesTests.release.xcconfig"; sourceTree = "<group>"; };
 		592943A42230518B00A61DDE /* RoundedViewWithShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViewWithShadow.swift; sourceTree = "<group>"; };
+		592943A72230664900A61DDE /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
+		592943AA223068AD00A61DDE /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		593468DD222EFCEA003FF2D7 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		59414D68222D349700C61B87 /* LocationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPresenter.swift; sourceTree = "<group>"; };
 		59414D69222D349700C61B87 /* LocationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationWorker.swift; sourceTree = "<group>"; };
@@ -157,6 +161,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		592943A92230689600A61DDE /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				592943AA223068AD00A61DDE /* CoreDataStack.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		59414D5A222D337400C61B87 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +194,7 @@
 		59414D7E222D7F7600C61B87 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				592943A92230689600A61DDE /* CoreData */,
 				592943A32230516F00A61DDE /* Views */,
 				59414D7F222D7F8100C61B87 /* Extensions */,
 				59414D9D222DD0CC00C61B87 /* Repository */,
@@ -362,6 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				59DF3CE22209C82F0008D5A1 /* Info.plist */,
+				592943A62230664900A61DDE /* User.xcdatamodeld */,
 			);
 			name = "Support Files";
 			sourceTree = "<group>";
@@ -613,6 +627,8 @@
 			files = (
 				59414DB2222DF63100C61B87 /* CurrencyInteractor.swift in Sources */,
 				59414D9F222DD13400C61B87 /* RepositoryResponse.swift in Sources */,
+				592943A82230664900A61DDE /* User.xcdatamodeld in Sources */,
+				592943AB223068AD00A61DDE /* CoreDataStack.swift in Sources */,
 				59414D72222D349700C61B87 /* LocationViewController.swift in Sources */,
 				59414D71222D349700C61B87 /* LocationModels.swift in Sources */,
 				59414DC1222E25B300C61B87 /* CurrencyHeaderTableViewCell.swift in Sources */,
@@ -966,6 +982,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		592943A62230664900A61DDE /* User.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				592943A72230664900A61DDE /* User.xcdatamodel */,
+			);
+			currentVersion = 592943A72230664900A61DDE /* User.xcdatamodel */;
+			path = User.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 59DF3CCB2209C82E0008D5A1 /* Project object */;
 }
