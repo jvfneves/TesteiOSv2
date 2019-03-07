@@ -11,6 +11,14 @@
 		592943A52230518B00A61DDE /* RoundedViewWithShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592943A42230518B00A61DDE /* RoundedViewWithShadow.swift */; };
 		592943A82230664900A61DDE /* User.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 592943A62230664900A61DDE /* User.xcdatamodeld */; };
 		592943AB223068AD00A61DDE /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592943AA223068AD00A61DDE /* CoreDataStack.swift */; };
+		592943B32230B7AB00A61DDE /* CurrencyPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592943B22230B7AB00A61DDE /* CurrencyPresenterTests.swift */; };
+		592943B52230B83700A61DDE /* CurrencyInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592943B42230B83700A61DDE /* CurrencyInteractorTests.swift */; };
+		592943B92230B94900A61DDE /* LocationPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592943B82230B94900A61DDE /* LocationPresenterTests.swift */; };
+		592943BB2230B97100A61DDE /* LocationInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592943BA2230B97100A61DDE /* LocationInteractorTests.swift */; };
+		592943C02230BA6200A61DDE /* CurrencyViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592943B62230B87400A61DDE /* CurrencyViewControllerTests.swift */; };
+		592943C12230BA6E00A61DDE /* LocationViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592943BC2230B99600A61DDE /* LocationViewControllerTests.swift */; };
+		592943C32230BA8100A61DDE /* LocationViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592943C22230BA8100A61DDE /* LocationViewControllerUITests.swift */; };
+		592943C52230BA9700A61DDE /* CurrencyViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592943C42230BA9700A61DDE /* CurrencyViewControllerUITests.swift */; };
 		593468DE222EFCEA003FF2D7 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593468DD222EFCEA003FF2D7 /* DateExtensions.swift */; };
 		59414D6E222D349700C61B87 /* LocationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D68222D349700C61B87 /* LocationPresenter.swift */; };
 		59414D6F222D349700C61B87 /* LocationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59414D69222D349700C61B87 /* LocationWorker.swift */; };
@@ -72,6 +80,14 @@
 		592943A42230518B00A61DDE /* RoundedViewWithShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViewWithShadow.swift; sourceTree = "<group>"; };
 		592943A72230664900A61DDE /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
 		592943AA223068AD00A61DDE /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		592943B22230B7AB00A61DDE /* CurrencyPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPresenterTests.swift; sourceTree = "<group>"; };
+		592943B42230B83700A61DDE /* CurrencyInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyInteractorTests.swift; sourceTree = "<group>"; };
+		592943B62230B87400A61DDE /* CurrencyViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewControllerTests.swift; sourceTree = "<group>"; };
+		592943B82230B94900A61DDE /* LocationPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPresenterTests.swift; sourceTree = "<group>"; };
+		592943BA2230B97100A61DDE /* LocationInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInteractorTests.swift; sourceTree = "<group>"; };
+		592943BC2230B99600A61DDE /* LocationViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewControllerTests.swift; sourceTree = "<group>"; };
+		592943C22230BA8100A61DDE /* LocationViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewControllerUITests.swift; sourceTree = "<group>"; };
+		592943C42230BA9700A61DDE /* CurrencyViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewControllerUITests.swift; sourceTree = "<group>"; };
 		593468DD222EFCEA003FF2D7 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		59414D68222D349700C61B87 /* LocationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPresenter.swift; sourceTree = "<group>"; };
 		59414D69222D349700C61B87 /* LocationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationWorker.swift; sourceTree = "<group>"; };
@@ -167,6 +183,60 @@
 				592943AA223068AD00A61DDE /* CoreDataStack.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		592943AC2230B27100A61DDE /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				592943AE2230B2C900A61DDE /* Currency */,
+				592943AF2230B2D300A61DDE /* Login */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		592943AD2230B27C00A61DDE /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				592943B12230B2F300A61DDE /* Currency */,
+				592943B02230B2EC00A61DDE /* Login */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		592943AE2230B2C900A61DDE /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				592943B22230B7AB00A61DDE /* CurrencyPresenterTests.swift */,
+				592943B42230B83700A61DDE /* CurrencyInteractorTests.swift */,
+				592943B62230B87400A61DDE /* CurrencyViewControllerTests.swift */,
+			);
+			path = Currency;
+			sourceTree = "<group>";
+		};
+		592943AF2230B2D300A61DDE /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				592943B82230B94900A61DDE /* LocationPresenterTests.swift */,
+				592943BA2230B97100A61DDE /* LocationInteractorTests.swift */,
+				592943BC2230B99600A61DDE /* LocationViewControllerTests.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		592943B02230B2EC00A61DDE /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				592943C22230BA8100A61DDE /* LocationViewControllerUITests.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		592943B12230B2F300A61DDE /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				592943C42230BA9700A61DDE /* CurrencyViewControllerUITests.swift */,
+			);
+			path = Currency;
 			sourceTree = "<group>";
 		};
 		59414D5A222D337400C61B87 /* Scenes */ = {
@@ -356,6 +426,7 @@
 		59DF3CEA2209C82F0008D5A1 /* TesteiOSv2-VitorNevesTests */ = {
 			isa = PBXGroup;
 			children = (
+				592943AC2230B27100A61DDE /* Scenes */,
 				59DF3CEB2209C82F0008D5A1 /* TesteiOSv2_VitorNevesTests.swift */,
 				59DF3CED2209C82F0008D5A1 /* Info.plist */,
 			);
@@ -365,6 +436,7 @@
 		59DF3CF52209C8300008D5A1 /* TesteiOSv2-VitorNevesUITests */ = {
 			isa = PBXGroup;
 			children = (
+				592943AD2230B27C00A61DDE /* Scenes */,
 				59DF3CF62209C8300008D5A1 /* TesteiOSv2_VitorNevesUITests.swift */,
 				59DF3CF82209C8300008D5A1 /* Info.plist */,
 			);
@@ -659,7 +731,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				592943C12230BA6E00A61DDE /* LocationViewControllerTests.swift in Sources */,
+				592943B52230B83700A61DDE /* CurrencyInteractorTests.swift in Sources */,
 				59DF3CEC2209C82F0008D5A1 /* TesteiOSv2_VitorNevesTests.swift in Sources */,
+				592943B32230B7AB00A61DDE /* CurrencyPresenterTests.swift in Sources */,
+				592943BB2230B97100A61DDE /* LocationInteractorTests.swift in Sources */,
+				592943B92230B94900A61DDE /* LocationPresenterTests.swift in Sources */,
+				592943C02230BA6200A61DDE /* CurrencyViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,6 +746,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				59DF3CF72209C8300008D5A1 /* TesteiOSv2_VitorNevesUITests.swift in Sources */,
+				592943C32230BA8100A61DDE /* LocationViewControllerUITests.swift in Sources */,
+				592943C52230BA9700A61DDE /* CurrencyViewControllerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

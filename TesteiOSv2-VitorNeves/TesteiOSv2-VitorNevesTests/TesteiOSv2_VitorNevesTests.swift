@@ -12,22 +12,54 @@ import XCTest
 class TesteiOSv2_VitorNevesTests: XCTestCase {
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    // Testing with valid email
+    func testEmail() {
+        let email = "teste@gmail.com"
+        XCTAssertTrue(email.isValidEmail())
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    // Testing with valid CPF
+    func testCPF() {
+        let cpf = "41419757610"
+        XCTAssertTrue(cpf.isValidCPF())
+    }
+    
+    // Testing with InValid CPF
+    func testInValidCPF(){
+        let cpf = "12345678912"
+        XCTAssertFalse(cpf.isValidCPF())
+    }
+    
+    // Testing with valid password
+    func testPassword() {
+        let password = "qweQWE123!@#"
+        XCTAssertTrue(password.isValidPassword())
+    }
+    
+    func testLogin() {
+        let worker = LocationWorker()
+        let email = "teste@gmail.com"
+        let password = "qweQWE123!@#"
+        worker.login(user: email, password: password, responseRequest: { response in
+            XCTAssertNil(response.error)
+        })
+    }
+    
+    func testCurrency() {
+        let worker = CurrencyWorker()
+        worker.fetchStatements(userId: 1) { response in
+            if response.statements != nil {
+                XCTAssert(true);
+            } else {
+                XCTAssert(false)
+            }
         }
     }
 
