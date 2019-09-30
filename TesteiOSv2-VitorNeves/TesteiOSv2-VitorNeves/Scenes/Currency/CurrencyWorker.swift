@@ -13,35 +13,22 @@
 import UIKit
 import Alamofire
 
-typealias currencyResponseHandler = (_ response:Currency.Response) ->()
+//MARK: - typealias
+typealias completionStatement = (Currency.Response?) -> Void
+typealias failure = (Error) -> Void
 
 class CurrencyWorker
 {
-    func fetchStatements(userId:Int!, responseRequest:@escaping(currencyResponseHandler)) {
-        if verificaInternet() {
-            Alamofire.request(Endpoints.Bank.Statements.url + "\(userId ?? 0)").validate(contentType: ["application/json"]).responseJSON { dataResponse in
-                switch dataResponse.result {
-                case .success(let json):
-                    let response = json as! NSDictionary
-                    //let errorList = response.object(forKey: "error") as! NSArray
-                    let list = response.object(forKey: "statementList") as! NSArray
-                    let statementList = NSMutableArray()
-                    for i in 0 ..< list.count {
-                        let statement = Currency.Statement(list.object(at: i) as! [String : Any])
-                        statementList.add(statement)
-                    }
-                    responseRequest(Currency.Response(statements: statementList,
-                                                      error: nil))
-                    break
-                case .failure( _):
-                    responseRequest(Currency.Response(statements: nil,
-                                                      error:Currency.Error(code: 0, message: "Ops! Ocorreu um erro ao contatar o servidor. Tente mais tarde.")))
-                    break
-                }
+    func fetchStatements(userId:Int!, completion: @escaping(completionStatement), failure: @escaping failure) {
+        RequestManager.shared.get("\(APISession.APIEndPoint)/statements/\(userId ?? 0)", model: Currency.Response.self, completion: { (statementResponse) in
+            if statementResponse?.error?.code == nil{
+                completion(statementResponse)
+            }else{
+                completion(nil)
             }
-        }else {
-            responseRequest(Currency.Response(statements: nil,
-                                              error:Currency.Error(code: 0, message: "Sem conexão com a internet.")))
+        }) { (error) in
+            print(error.localizedDescription)
+            failure(error)
         }
     }
 }

@@ -8,31 +8,30 @@
 
 import Foundation
 
-public protocol RepositoryResponseProtocol : Codable {
-    var code: Int? { get set }
-    var message: String? { get set }
-}
-
+//MARK: - Structs
 public struct nullStruct : Codable {}
 
-public struct RepositoryResponse<T>: Codable, RepositoryResponseProtocol where T: Codable {
-    public var data: T?
-    public var code: Int?
-    public var message: String?
+struct ErrorRepo : Codable {
+    var code: Int?
+    var message: String?
+}
+
+public struct RepositoryResponse<T:Codable> : Codable{
+    var data: T?
+    var responseError: ErrorRepo?
     
     public enum ResponseKeys: String, CodingKey
     {
-        case data, code, message
+        case data = "statementList", responseError = "error"
     }
     
     public init (from decoder: Decoder) throws {
-        let container =  try decoder.container(keyedBy: ResponseKeys.self)
-        code = try container.decode(Int.self, forKey: .code)
-        if code != nil {
-            data = try container.decode(T.self, forKey: .data)
-        } else if let d = try? container.decode(T.self, forKey: .data) {
-            data = d
-        }
-        message = try container.decode(String.self, forKey: .message)
+       let container =  try decoder.container(keyedBy: ResponseKeys.self)
+        responseError = try container.decode(ErrorRepo.self, forKey: .responseError)
+       if responseError == nil {
+           data = try container.decode(T.self, forKey: .data)
+       } else if let d = try? container.decode(T.self, forKey: .data) {
+           data = d
+       }
     }
 }

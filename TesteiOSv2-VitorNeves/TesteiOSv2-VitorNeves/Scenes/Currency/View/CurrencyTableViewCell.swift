@@ -24,7 +24,7 @@ class CurrencyTableViewCell: UITableViewCell {
     public var statement: Currency.Statement? {
         didSet {
             self.namePaymentLabel.text = statement?.title
-            self.datePaymentLabel.text = statement?.date.toString(format: "dd/MM/yyyy")
+            //self.datePaymentLabel.text = statement?.date.toString(format: "dd/MM/yyyy")
             self.typePaymentLabel.text = statement?.desc
             self.valueTypePaymentLabel.text = String(format: "R$ %.02f", locale: Locale.current, arguments: [statement?.value ?? "R$ 0,00"])
         }

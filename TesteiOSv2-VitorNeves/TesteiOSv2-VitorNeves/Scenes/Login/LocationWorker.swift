@@ -28,7 +28,7 @@ class LocationWorker
 //    }
     
     func login(user:String!, password:String!, responseRequest:@escaping(loginResponseHandler)) {
-        if verificaInternet() {
+        //if verificaInternet() {
             
             Alamofire.request(Endpoints.Bank.Login.url,
                               method: .post,
@@ -63,9 +63,9 @@ class LocationWorker
                         break
                     }
             }
-        } else {
-            responseRequest(Location.Login.Response(userAccount: nil,
-                                                    error:Location.Error(code: 0, message: "Sem conexão com a internet.")))
-        }
+//        } else {
+//            responseRequest(Location.Login.Response(userAccount: nil,
+//                                                    error:Location.Error(code: 0, message: "Sem conexão com a internet.")))
+//        }
     }
 }

@@ -11,7 +11,6 @@
 //
 
 import UIKit
-import Tailor
 
 class Currency {
     
@@ -19,31 +18,34 @@ class Currency {
         var userId = 0
     }
     
-    struct Response {
-        var statements: NSArray?
-        var error: Error?
+    struct Response : Codable {
+        var statementList: [Statement]?
+        var error: ErrorRepo?
     }
     //Model
-    struct Statement: Mappable {
-        let title: String
-        let desc: String
-        let date: Date
-        let value: Float64
-        
-        init(_ map: [String : Any]) {
-            self.title = map.property("title")!
-            self.desc = map.property("desc")!
-            self.date =  map.transform("date", transformer: { (value: String) -> Date? in
-                let df = DateFormatter()
-                df.dateFormat = "yyyy-MM-dd"
-                return df.date(from: value)!
-            })!
-            self.value = map.property("value")!
-        }
+    struct Statement: Codable {
+        var title: String?
+        var desc: String?
+        var date: String?
+        var value: Double?
     }
-    
-    struct Error {
-        var code: Int
-        var message: String
-    }
+//    struct Statement: Mappable {
+//        let title: String
+//        let desc: String
+//        let date: Date
+//        let value: Float64
+//
+//        init(_ map: [String : Any]) {
+//            self.title = map.property("title")!
+//            self.desc = map.property("desc")!
+//            self.date =  map.transform("date", transformer: { (value: String) -> Date? in
+//                let df = DateFormatter()
+//                df.dateFormat = "yyyy-MM-dd"
+//                return df.date(from: value)!
+//            })!
+//            self.value = map.property("value")!
+//        }
+//    }
 }
+
+

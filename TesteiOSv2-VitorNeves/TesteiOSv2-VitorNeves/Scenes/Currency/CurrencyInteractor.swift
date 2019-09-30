@@ -34,10 +34,15 @@ class CurrencyInteractor: CurrencyBusinessLogic, CurrencyDataStore
     }
     
     func fetchStatements(request: Currency.Request) {
-        
         worker = CurrencyWorker()
-        worker?.fetchStatements(userId: request.userId, responseRequest: { response in
-            self.presenter?.presentStatements(response: response)
+        worker?.fetchStatements(userId: request.userId, completion: { (responseStatements) in
+            guard let responseStatements = responseStatements else{
+                return
+            }
+            self.presenter?.presentStatements(response: responseStatements, error: nil)
+        }, failure: { (error) in
+            print(error.localizedDescription)
+            self.presenter?.presentStatements(response: nil, error: error)
         })
     }
 }

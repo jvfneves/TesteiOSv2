@@ -14,7 +14,7 @@ import UIKit
 
 protocol CurrencyDisplayLogic: class
 {
-    func displayStatements(_ viewModel: Currency.Response)
+    func displayStatements(_ viewModel: Currency.Response, error: Error?)
 }
 
 class CurrencyViewController: UIViewController, CurrencyDisplayLogic
@@ -81,7 +81,9 @@ class CurrencyViewController: UIViewController, CurrencyDisplayLogic
     @IBOutlet weak var numberAccountLAbel: UILabel!
     @IBOutlet weak var balanceUserLabel: UILabel!
     @IBOutlet weak var currencyTableView: UITableView!
-    var list_statements: NSMutableArray = NSMutableArray()
+    
+    //MARK: - Properties
+    var list_statements: [Currency.Statement] = []
     
     func setTableView(){
         // MARK: - TableView
@@ -107,10 +109,10 @@ class CurrencyViewController: UIViewController, CurrencyDisplayLogic
         interactor?.fetchStatements(request: request)
     }
     
-    func displayStatements(_ viewModel: Currency.Response) {
+    func displayStatements(_ viewModel: Currency.Response, error: Error?) {
         self.dismissHUD()
-        if let statements = viewModel.statements {
-            self.list_statements = statements as! NSMutableArray
+        if let statements = viewModel.statementList {
+            self.list_statements = statements
             self.currencyTableView.reloadData()
         }
     }
@@ -131,8 +133,13 @@ extension CurrencyViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if !self.list_statements.indices.contains(indexPath.row){
+            return UITableViewCell()
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyTableViewCell", for: indexPath) as! CurrencyTableViewCell
-        let statement = list_statements.object(at: indexPath.row) as! Currency.Statement
+        let statement = list_statements[indexPath.row]
         cell.statement = statement
         return cell
     }

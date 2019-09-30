@@ -14,14 +14,17 @@ import UIKit
 
 protocol CurrencyPresentationLogic
 {
-    func presentStatements(response: Currency.Response)
+    func presentStatements(response: Currency.Response?, error: Error?)
 }
 
 class CurrencyPresenter: CurrencyPresentationLogic
 {
     weak var viewController: CurrencyDisplayLogic?
   
-    func presentStatements(response: Currency.Response) {
-        viewController?.displayStatements(response)
+    func presentStatements(response: Currency.Response?, error: Error?) {
+        guard let response = response  else{
+            return
+        }
+        viewController?.displayStatements(response,error: error)
     }
 }
