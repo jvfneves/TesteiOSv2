@@ -15,37 +15,18 @@ import UIKit
 class Currency {
     
     struct Request {
-        var userId = 0
+        var userId: Int? = 0
     }
     
     struct Response : Codable {
         var statementList: [Statement]?
         var error: ErrorRepo?
     }
-    //Model
+    
     struct Statement: Codable {
         var title: String?
         var desc: String?
         var date: String?
         var value: Double?
     }
-//    struct Statement: Mappable {
-//        let title: String
-//        let desc: String
-//        let date: Date
-//        let value: Float64
-//
-//        init(_ map: [String : Any]) {
-//            self.title = map.property("title")!
-//            self.desc = map.property("desc")!
-//            self.date =  map.transform("date", transformer: { (value: String) -> Date? in
-//                let df = DateFormatter()
-//                df.dateFormat = "yyyy-MM-dd"
-//                return df.date(from: value)!
-//            })!
-//            self.value = map.property("value")!
-//        }
-//    }
 }
-
-

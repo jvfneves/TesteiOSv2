@@ -10,10 +10,10 @@ import Alamofire
 
 class RequestManager {
     
-    // MARK: - Singleton
+    //MARK: - Singleton
     static let shared = RequestManager()
     
-    // MARK: - GET
+    //MARK: - GET
     public func get<T:Codable>(_ url: String, model: T.Type, headers: HTTPHeaders = [:], completion: @escaping (T?) -> Void, onFailure: @escaping (Error) -> Void ) {
         
         guard let isInternet = NetworkReachabilityManager()?.isReachable else{ return }
@@ -57,7 +57,7 @@ class RequestManager {
         }
     }
     
-    // MARK: - POST
+    //MARK: - POST
     public func post<T:Codable>(_ url: String, model: T.Type, params: Parameters, headers: HTTPHeaders = [:], completion: @escaping (T?) -> Void, onFailure: @escaping (Error) -> Void) {
         
         guard let isInternet = NetworkReachabilityManager()?.isReachable else{ return }

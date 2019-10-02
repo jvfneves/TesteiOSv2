@@ -11,6 +11,7 @@ import SVProgressHUD
 
 extension UIViewController {
 
+    //MARK: - Alert
     func showAlert(title: String, message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         let alertActionCancel = UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: nil)
@@ -18,6 +19,7 @@ extension UIViewController {
         self.present(alert,animated: true)
     }
     
+    //MARK: - SVProgressHUD
     func showHUD(){
         SVProgressHUD.show()
     }

@@ -25,7 +25,6 @@ struct Location {
             var userAccount: UserAccount?
             var error: ErrorRepo?
         }
-        
     }
     
     struct UserAccount : Codable {

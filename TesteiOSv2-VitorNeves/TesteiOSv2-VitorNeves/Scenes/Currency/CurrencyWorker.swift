@@ -11,14 +11,15 @@
 //
 
 import UIKit
-import Alamofire
 
-//MARK: - typealias
+//MARK: - Typealias
 typealias completionStatement = (Currency.Response?) -> Void
 typealias failure = (Error) -> Void
 
 class CurrencyWorker
 {
+    
+    //MARK: - Get Statements
     func fetchStatements(userId:Int!, completion: @escaping(completionStatement), failure: @escaping failure) {
         RequestManager.shared.get("\(APISession.APIEndPoint)/statements/\(userId ?? 0)", model: Currency.Response.self, completion: { (statementResponse) in
             if statementResponse?.error?.code == nil{
@@ -27,7 +28,6 @@ class CurrencyWorker
                 completion(nil)
             }
         }) { (error) in
-            print(error.localizedDescription)
             failure(error)
         }
     }

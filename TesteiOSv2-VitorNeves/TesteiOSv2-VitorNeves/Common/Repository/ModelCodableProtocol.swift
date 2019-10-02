@@ -8,20 +8,26 @@
 
 import Foundation
 
-//typealias ModelCodable = Model & Entity & Codable
+//MARK: - Typealias
 typealias ModelCodable = Model & Entity & Codable
 
+//MARK: - Protocols
 protocol Entity : Codable {
+    //MARK: - Properties
     static var endPoint: String { get }
 }
 
 protocol Model: Codable {
+    //MARK: - Actions
     func toRegisterDictionary() -> [String : Any]
     func jsonData() throws -> Data
     func jsonString(encoding: String.Encoding) throws -> String?
 }
 
+//MARK: - Extension
 extension Model {
+    
+    //MARK: - Actions
     func toRegisterDictionary() -> [String : Any] {
         var resultDict : [String : Any] = [:]
         if let jsonDict = try? JSONSerialization.jsonObject(with: JSONEncoder().encode(self), options: []), let dict = jsonDict as? [String: Any] {

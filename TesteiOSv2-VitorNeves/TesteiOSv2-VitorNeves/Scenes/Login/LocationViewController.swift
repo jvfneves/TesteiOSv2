@@ -13,28 +13,24 @@
 import UIKit
 
 //MARK: - Protocols
-
 protocol LocationDisplayLogic: class
 {
-    func validateLogin() -> Bool
-    func validLogin(_ userAccount: Location.UserAccount)
     func displayError(_ error: ErrorRepo?)
+    func validLogin(_ userAccount: Location.UserAccount)
+    func validateLogin() -> Bool
 }
 
 class LocationViewController: UIViewController, LocationDisplayLogic
 {
-    // MARK: - Outlets
-
+    //MARK: - Outlets
     @IBOutlet weak var userField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
     //MARK: - Properties
-    
     var interactor: LocationBusinessLogic?
     var router: (NSObjectProtocol & LocationRoutingLogic & LocationDataPassing)?
     
-    // MARK: - Object lifecycle
-  
+    //MARK: - Lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
     {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -46,9 +42,14 @@ class LocationViewController: UIViewController, LocationDisplayLogic
         super.init(coder: aDecoder)
         setup()
     }
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        self.userField.becomeFirstResponder()
+    }
 
-    // MARK: - Setup
-
+    //MARK: - Set View
     private func setup()
     {
         let viewController = self
@@ -62,24 +63,14 @@ class LocationViewController: UIViewController, LocationDisplayLogic
         router.viewController = viewController
         router.dataStore = interactor
     }
-
-    //MARK: - View lifecycle
-
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-        self.userField.becomeFirstResponder()
-    }
-
-    //MARK: - Message
     
+    //MARK: - Message
     func displayError(_ error: ErrorRepo?){
         self.dismissHUD()
         self.showAlert(title: "Bank", message: error?.message ?? "")
     }
     
     //MARK: - Validate
-    
     func validLogin(_ userAccount: Location.UserAccount){
         self.dismissHUD()
         router?.goToCurrency(userAccount: userAccount)
@@ -108,14 +99,12 @@ class LocationViewController: UIViewController, LocationDisplayLogic
         return true
     }
 
-    // MARK: - Actions
-
+    //MARK: - Actions
     @IBAction func loginAction(_ sender: UIButton) {
         if validateLogin() {
             self.showHUD()
             let request = Location.Login.Request(user: self.userField.text!, password: self.passwordField.text!)
-            interactor?.login(request)
+            interactor?.postLogin(request)
         }
     }
-    
 }

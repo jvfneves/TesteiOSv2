@@ -8,27 +8,31 @@
 
 import Foundation
 
-//MARK: - Structs
-public struct nullStruct : Codable {}
-
+//MARK: - Structs Response
 struct ErrorRepo : Codable {
+    
+    //MARK: - Properties
     var code: Int?
     var message: String?
 }
 
 public struct RepositoryResponse<T:Codable> : Codable{
-    var data: T?
-    var responseError: ErrorRepo?
     
+    //MARK: - Properties
+    var data: T?
+    var error: ErrorRepo?
+    
+    //MARK: - Enum
     public enum ResponseKeys: String, CodingKey
     {
-        case data, responseError = "error"
+        case data, error
     }
     
+    //MARK: - Init
     public init (from decoder: Decoder) throws {
        let container =  try decoder.container(keyedBy: ResponseKeys.self)
-        responseError = try container.decode(ErrorRepo.self, forKey: .responseError)
-       if responseError == nil {
+        error = try container.decode(ErrorRepo.self, forKey: .error)
+       if error == nil {
            data = try container.decode(T.self, forKey: .data)
        } else if let d = try? container.decode(T.self, forKey: .data) {
            data = d

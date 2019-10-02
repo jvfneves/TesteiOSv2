@@ -12,6 +12,7 @@
 
 import UIKit
 
+//MARK: - Protocols
 protocol CurrencyBusinessLogic
 {
     func getUserAccount() -> Location.UserAccount?
@@ -25,10 +26,13 @@ protocol CurrencyDataStore
 
 class CurrencyInteractor: CurrencyBusinessLogic, CurrencyDataStore
 {
+    
+    //MARK: - Properties
     var presenter: CurrencyPresentationLogic?
     var worker: CurrencyWorker?
     var userAccount: Location.UserAccount?
     
+    //MARK: - Actions
     func getUserAccount() -> Location.UserAccount? {
         return userAccount
     }

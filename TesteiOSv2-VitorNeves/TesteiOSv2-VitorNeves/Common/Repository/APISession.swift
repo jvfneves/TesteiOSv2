@@ -27,5 +27,4 @@ class APISession {
         static let VersionUser = "VersionUser"
         static let CFBundleShortVersionString = "CFBundleShortVersionString"
     }
-    
 }

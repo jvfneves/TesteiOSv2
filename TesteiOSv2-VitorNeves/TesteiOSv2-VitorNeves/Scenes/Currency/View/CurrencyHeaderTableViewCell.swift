@@ -8,6 +8,7 @@
 
 import UIKit
 
+//MARK: - Protocols
 protocol CurrencyHeaderTableViewCellProtocol: class {
     func didSelectCurrencyHeader(cell: CurrencyHeaderTableViewCell)
 }
@@ -20,14 +21,12 @@ class CurrencyHeaderTableViewCell: UITableViewCell {
     //MARK: - Properties
     public weak var delegate : CurrencyHeaderTableViewCellProtocol?
     
+    //MARK: - LifeCicle
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
-    
 }

@@ -13,7 +13,6 @@
 import UIKit
 
 //MARK: - Protocols
-
 protocol LocationRoutingLogic
 {
     func goToCurrency(userAccount: Location.UserAccount)
@@ -27,13 +26,11 @@ protocol LocationDataPassing
 class LocationRouter: NSObject, LocationRoutingLogic, LocationDataPassing
 {
     //MARK: - Properties
-    
     weak var viewController: LocationViewController?
     var dataStore: LocationDataStore?
     let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
     
-    // MARK: - Routing
-    
+    //MARK: - Routing
     func goToCurrency(userAccount: Location.UserAccount) {
         guard let destinationVC = mainStoryBoard.instantiateViewController(withIdentifier: "CurrencyViewController") as? CurrencyViewController else {
             return
@@ -44,6 +41,7 @@ class LocationRouter: NSObject, LocationRoutingLogic, LocationDataPassing
         viewController?.present(destinationVC, animated: true, completion: nil)
     }
     
+    //MARK: - Navigation
     func passDataToSomewhere(source: LocationDataStore, destination: inout CurrencyDataStore) {
         destination.userAccount = source.userAccount
     }

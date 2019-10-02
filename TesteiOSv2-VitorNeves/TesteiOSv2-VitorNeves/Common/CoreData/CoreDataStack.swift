@@ -11,6 +11,7 @@ import CoreData
 
 class CoreDataStack {
     
+    //MARK: - Properties
     static var applicationDocumentsDirectory: URL = {
         
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -57,6 +58,7 @@ class CoreDataStack {
         return managedObjectContext
     }()
     
+    //MARK: - GET
     static func getEntity<T: NSManagedObject>() -> T {
         if #available(iOS 10, *) {
             let obj = T(context: CoreDataStack.managedObjectContext)
@@ -70,8 +72,7 @@ class CoreDataStack {
         }
     }
     
-    // MARK: - Core Data Saving support
-    
+    //MARK: - Core Data Saving support
     static func saveContext () {
         if managedObjectContext.hasChanges {
             do {

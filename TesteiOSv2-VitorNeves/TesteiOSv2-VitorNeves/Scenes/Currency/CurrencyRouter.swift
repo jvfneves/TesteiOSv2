@@ -12,6 +12,7 @@
 
 import UIKit
 
+//MARK: - Protocols
 @objc protocol CurrencyRoutingLogic
 {
     func goToLogin()
@@ -24,15 +25,15 @@ protocol CurrencyDataPassing
 
 class CurrencyRouter: NSObject, CurrencyRoutingLogic, CurrencyDataPassing
 {
+    
+    //MARK: - Properties
     weak var viewController: CurrencyViewController?
     var dataStore: CurrencyDataStore?
     let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
     
     // MARK: - Routing
-    
     func goToLogin() {
         guard let view = mainStoryBoard.instantiateViewController(withIdentifier: "LocationViewController") as? LocationViewController else {
-            print("saiu")
             return
         }
         view.modalTransitionStyle = .coverVertical

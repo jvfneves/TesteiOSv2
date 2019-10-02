@@ -13,43 +13,53 @@
 import UIKit
 
 //MARK: - Protocols
-
 protocol CurrencyDisplayLogic: class
 {
+    func setTableView()
+    func showUser()
+    func fetchStatements()
     func displayStatements(_ viewModel: Currency.Response, error: Error?)
 }
 
 class CurrencyViewController: UIViewController, CurrencyDisplayLogic
 {
-    // MARK: - Outlets
-    
+    //MARK: - Outlets
     @IBOutlet weak var nameUserLabel: UILabel!
     @IBOutlet weak var numberAccountLAbel: UILabel!
     @IBOutlet weak var balanceUserLabel: UILabel!
     @IBOutlet weak var currencyTableView: UITableView!
     
     //MARK: - Properties
-    
     var list_statements: [Currency.Statement] = []
     var interactor: CurrencyBusinessLogic?
     var router: (NSObjectProtocol & CurrencyRoutingLogic & CurrencyDataPassing)?
 
-    // MARK: - Object lifecycle
-  
+    //MARK: - Lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
     {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
         setup()
     }
   
     required init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
+        
         setup()
     }
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        self.showHUD()
+        self.setTableView()
+        self.showUser()
+        self.fetchStatements()
+    }
   
-    // MARK: - Setup
-  
+    //MARK: - Set View
     private func setup()
     {
         let viewController = self
@@ -63,9 +73,24 @@ class CurrencyViewController: UIViewController, CurrencyDisplayLogic
         router.viewController = viewController
         router.dataStore = interactor
     }
+    
+    func setTableView(){
+        currencyTableView.delegate = self
+        currencyTableView.dataSource = self
+        currencyTableView.separatorStyle = .none
+        
+        currencyTableView.register(UINib(nibName: "CurrencyHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "CurrencyHeaderTableViewCell")
+        currencyTableView.register(UINib(nibName: "CurrencyTableViewCell", bundle: nil), forCellReuseIdentifier: "CurrencyTableViewCell")
+    }
+    
+    func showUser() {
+        let user = self.interactor!.getUserAccount()
+        self.nameUserLabel.text = user?.name
+        self.numberAccountLAbel.text = "\(user?.bankAccount ?? "") / \(user?.agency?.maskAgency() ?? "")"
+        self.balanceUserLabel.text = String(format: "R$ %.02f", locale: Locale.current, arguments: [(user?.balance ?? 0)])
+    }
   
-    // MARK: - Routing
-  
+    //MARK: - Routing
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if let scene = segue.identifier {
@@ -75,36 +100,8 @@ class CurrencyViewController: UIViewController, CurrencyDisplayLogic
             }
         }
     }
-  
-    // MARK: - View lifecycle
-  
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-        self.showHUD()
-        self.setTableView()
-        self.mostrarUsuario()
-        self.fetchStatements()
-    }
     
-    func setTableView(){
-        // MARK: - TableView
-        
-        currencyTableView.delegate = self
-        currencyTableView.dataSource = self
-        currencyTableView.separatorStyle = .none
-        
-        currencyTableView.register(UINib(nibName: "CurrencyHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "CurrencyHeaderTableViewCell")
-        currencyTableView.register(UINib(nibName: "CurrencyTableViewCell", bundle: nil), forCellReuseIdentifier: "CurrencyTableViewCell")
-    }
-    
-    func mostrarUsuario() {
-        let user = self.interactor!.getUserAccount()
-        self.nameUserLabel.text = user?.name
-        self.numberAccountLAbel.text = "\(user?.bankAccount ?? "") / \(user?.agency?.maskAgency() ?? "")"
-        self.balanceUserLabel.text = String(format: "R$ %.02f", locale: Locale.current, arguments: [(user?.balance ?? 0)])
-    }
-    
+    //MARK: - Request
     func fetchStatements() {
         var request = Currency.Request()
         request.userId = self.interactor!.getUserAccount()?.userId ?? 0
@@ -120,14 +117,12 @@ class CurrencyViewController: UIViewController, CurrencyDisplayLogic
     }
     
     //MARK: - Actions
-    
     @IBAction func logoutAction(_ sender: UIButton) {
         router?.goToLogin()
     }
 }
 
-//MARK: - UITableViewDelegate/UITableViewDataSource
-
+//MARK: - UITableView
 extension CurrencyViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -12,6 +12,7 @@
 
 import UIKit
 
+//MARK: - Protocol
 protocol CurrencyPresentationLogic
 {
     func presentStatements(response: Currency.Response?, error: Error?)
@@ -19,8 +20,11 @@ protocol CurrencyPresentationLogic
 
 class CurrencyPresenter: CurrencyPresentationLogic
 {
+    
+    //MARK: - Properties
     weak var viewController: CurrencyDisplayLogic?
   
+    //MARK: - Actions
     func presentStatements(response: Currency.Response?, error: Error?) {
         guard let response = response  else{
             return

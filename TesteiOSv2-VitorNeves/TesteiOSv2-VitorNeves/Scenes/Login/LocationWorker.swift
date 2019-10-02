@@ -19,7 +19,9 @@ typealias completionLogin = (Location.Login.Response?) ->Void
 
 class LocationWorker
 {
-    func login(user:String!, password:String!, completion:@escaping(completionLogin), failure: @escaping(failure)) {
+    
+    //MARK: - Post Login
+    func postLogin(user:String!, password:String!, completion:@escaping(completionLogin), failure: @escaping(failure)) {
         
         let parameters: Parameters = [
         "user": user,
@@ -27,10 +29,8 @@ class LocationWorker
         ]
         
         RequestManager.shared.post("\(APISession.APIEndPoint)/login", model: Location.Login.Response.self, params: parameters, completion: { (loginResponse) in
-            print(loginResponse)
             completion(loginResponse)
         }) { (error) in
-            print(error.localizedDescription)
             failure(error)
         }
     }

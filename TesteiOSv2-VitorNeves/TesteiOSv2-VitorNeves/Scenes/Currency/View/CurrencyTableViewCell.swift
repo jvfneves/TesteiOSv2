@@ -8,6 +8,7 @@
 
 import UIKit
 
+//MARK: - Protocols
 protocol CurrencyTableViewCellProtocol: class {
     func didSelectCurrency(cell: CurrencyTableViewCell, currency: Currency.Statement)
 }
@@ -20,6 +21,9 @@ class CurrencyTableViewCell: UITableViewCell {
     @IBOutlet weak var typePaymentLabel: UILabel!
     @IBOutlet weak var valueTypePaymentLabel: UILabel!
     
+    //MARK: - Properties
+    public weak var delegate : CurrencyTableViewCellProtocol?
+    
     //MARK: - Setters
     public var statement: Currency.Statement? {
         didSet {
@@ -30,17 +34,14 @@ class CurrencyTableViewCell: UITableViewCell {
         }
     }
     
-    //MARK: - Properties
-    public weak var delegate : CurrencyTableViewCellProtocol?
-    
+    //MARK: - LifeCicle
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
 
+    //MARK: - Action
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
     
 }

@@ -13,7 +13,6 @@
 import UIKit
 
 //MARK: - Protocols
-
 protocol LocationPresentationLogic
 {
     func presentLoginResults(response: Location.Login.Response?, error: Error?)
@@ -22,9 +21,9 @@ protocol LocationPresentationLogic
 class LocationPresenter: LocationPresentationLogic
 {
     //MARK: - Properties
-
     weak var viewController: LocationDisplayLogic?
   
+    //MARK: - Actions
     func presentLoginResults(response: Location.Login.Response?, error: Error?)
     {
         if response?.userAccount != nil {
@@ -33,7 +32,6 @@ class LocationPresenter: LocationPresentationLogic
             }
             viewController?.validLogin(userAccount)
         } else {
-            //tocar esse error talvez
             viewController?.displayError(response?.error)
         }
     }

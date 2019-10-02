@@ -8,20 +8,14 @@
 
 import UIKit
 
+//MARK: - String
 extension String {
     
-//    func trimmed() -> String{
-//        return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-//    }
-    
+    //MARK: - Validations
     var isNumeric: Bool {
         guard self.count > 0 else { return false }
         let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
         return Set(self).isSubset(of: nums)
-    }
-    
-    var isNumber: Bool {
-        return !isEmpty && rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
     }
     
     func isValidEmail() -> Bool {
@@ -49,8 +43,10 @@ extension String {
     
 }
 
+//MARK: - StringProtocol
 extension StringProtocol {
     
+    //MARK: - ValidCPF
     func isValidCPF() -> Bool {
         let numbers = compactMap({ Int(String($0)) })
         guard numbers.count == 11 && Set(numbers).count != 1 else { return false }

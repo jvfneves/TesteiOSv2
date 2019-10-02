@@ -13,10 +13,9 @@
 import UIKit
 
 //MARK: - Protocols
-
 protocol LocationBusinessLogic
 {
-    func login(_ request: Location.Login.Request)
+    func postLogin(_ request: Location.Login.Request)
 }
 
 protocol LocationDataStore
@@ -27,14 +26,14 @@ protocol LocationDataStore
 class LocationInteractor: LocationBusinessLogic, LocationDataStore
 {
     //MARK: - Properties
-    
     var presenter: LocationPresentationLogic?
     var worker: LocationWorker?
     var userAccount: Location.UserAccount?
     
-    func login(_ request: Location.Login.Request) {
+    //MARK: - Actions
+    func postLogin(_ request: Location.Login.Request) {
         worker = LocationWorker()
-        worker?.login(user: request.user!, password: request.password, completion: { (loginResponse) in
+        worker?.postLogin(user: request.user!, password: request.password, completion: { (loginResponse) in
             self.userAccount = loginResponse?.userAccount
             self.presenter?.presentLoginResults(response: loginResponse, error: nil)
         }, failure: { (error) in
