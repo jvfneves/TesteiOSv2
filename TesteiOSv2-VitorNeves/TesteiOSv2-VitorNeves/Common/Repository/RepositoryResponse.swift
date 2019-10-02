@@ -22,7 +22,7 @@ public struct RepositoryResponse<T:Codable> : Codable{
     
     public enum ResponseKeys: String, CodingKey
     {
-        case data = "statementList", responseError = "error"
+        case data, responseError = "error"
     }
     
     public init (from decoder: Decoder) throws {

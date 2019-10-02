@@ -12,21 +12,29 @@
 
 import UIKit
 
+//MARK: - Protocols
+
 protocol LocationPresentationLogic
 {
-    func presentLoginResults(response: Location.Login.Response)
+    func presentLoginResults(response: Location.Login.Response?, error: Error?)
 }
 
 class LocationPresenter: LocationPresentationLogic
 {
+    //MARK: - Properties
+
     weak var viewController: LocationDisplayLogic?
   
-    func presentLoginResults(response: Location.Login.Response)
+    func presentLoginResults(response: Location.Login.Response?, error: Error?)
     {
-        if response.userAccount != nil {
-            viewController?.validLogin(response.userAccount!)
+        if response?.userAccount != nil {
+            guard let userAccount = response?.userAccount else{
+                return
+            }
+            viewController?.validLogin(userAccount)
         } else {
-            viewController?.displayError(response.error!)
+            //tocar esse error talvez
+            viewController?.displayError(response?.error)
         }
     }
 }

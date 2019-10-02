@@ -12,6 +12,8 @@
 
 import UIKit
 
+//MARK: - Protocols
+
 protocol LocationBusinessLogic
 {
     func login(_ request: Location.Login.Request)
@@ -24,15 +26,19 @@ protocol LocationDataStore
 
 class LocationInteractor: LocationBusinessLogic, LocationDataStore
 {
+    //MARK: - Properties
+    
     var presenter: LocationPresentationLogic?
     var worker: LocationWorker?
     var userAccount: Location.UserAccount?
     
     func login(_ request: Location.Login.Request) {
         worker = LocationWorker()
-        worker?.login(user: request.user!, password: request.password, responseRequest: { response in
-            self.userAccount = response.userAccount
-            self.presenter?.presentLoginResults(response: response)
+        worker?.login(user: request.user!, password: request.password, completion: { (loginResponse) in
+            self.userAccount = loginResponse?.userAccount
+            self.presenter?.presentLoginResults(response: loginResponse, error: nil)
+        }, failure: { (error) in
+            self.presenter?.presentLoginResults(response: nil, error: error)
         })
     }
 }

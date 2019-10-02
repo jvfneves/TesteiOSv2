@@ -12,7 +12,9 @@
 
 import UIKit
 
-@objc protocol LocationRoutingLogic
+//MARK: - Protocols
+
+protocol LocationRoutingLogic
 {
     func goToCurrency(userAccount: Location.UserAccount)
 }
@@ -24,6 +26,8 @@ protocol LocationDataPassing
 
 class LocationRouter: NSObject, LocationRoutingLogic, LocationDataPassing
 {
+    //MARK: - Properties
+    
     weak var viewController: LocationViewController?
     var dataStore: LocationDataStore?
     let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)

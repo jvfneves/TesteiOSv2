@@ -12,15 +12,24 @@
 
 import UIKit
 
+//MARK: - Protocols
+
 protocol LocationDisplayLogic: class
 {
     func validateLogin() -> Bool
     func validLogin(_ userAccount: Location.UserAccount)
-    func displayError(_ error: Location.Error)
+    func displayError(_ error: ErrorRepo?)
 }
 
 class LocationViewController: UIViewController, LocationDisplayLogic
 {
+    // MARK: - Outlets
+
+    @IBOutlet weak var userField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
+    //MARK: - Properties
+    
     var interactor: LocationBusinessLogic?
     var router: (NSObjectProtocol & LocationRoutingLogic & LocationDataPassing)?
     
@@ -54,7 +63,7 @@ class LocationViewController: UIViewController, LocationDisplayLogic
         router.dataStore = interactor
     }
 
-    // MARK: - View lifecycle
+    //MARK: - View lifecycle
 
     override func viewDidLoad()
     {
@@ -62,19 +71,18 @@ class LocationViewController: UIViewController, LocationDisplayLogic
         self.userField.becomeFirstResponder()
     }
 
-    // MARK: - Do something
-
-    @IBOutlet weak var userField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
-
+    //MARK: - Message
+    
+    func displayError(_ error: ErrorRepo?){
+        self.dismissHUD()
+        self.showAlert(title: "Bank", message: error?.message ?? "")
+    }
+    
+    //MARK: - Validate
+    
     func validLogin(_ userAccount: Location.UserAccount){
         self.dismissHUD()
         router?.goToCurrency(userAccount: userAccount)
-    }
-    
-    func displayError(_ error: Location.Error){
-        self.dismissHUD()
-        self.showAlert(title: "Bank", message: error.message)
     }
     
     func validateLogin() -> Bool{

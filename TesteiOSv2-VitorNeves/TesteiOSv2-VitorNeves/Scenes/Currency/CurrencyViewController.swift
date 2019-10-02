@@ -12,6 +12,8 @@
 
 import UIKit
 
+//MARK: - Protocols
+
 protocol CurrencyDisplayLogic: class
 {
     func displayStatements(_ viewModel: Currency.Response, error: Error?)
@@ -19,6 +21,16 @@ protocol CurrencyDisplayLogic: class
 
 class CurrencyViewController: UIViewController, CurrencyDisplayLogic
 {
+    // MARK: - Outlets
+    
+    @IBOutlet weak var nameUserLabel: UILabel!
+    @IBOutlet weak var numberAccountLAbel: UILabel!
+    @IBOutlet weak var balanceUserLabel: UILabel!
+    @IBOutlet weak var currencyTableView: UITableView!
+    
+    //MARK: - Properties
+    
+    var list_statements: [Currency.Statement] = []
     var interactor: CurrencyBusinessLogic?
     var router: (NSObjectProtocol & CurrencyRoutingLogic & CurrencyDataPassing)?
 
@@ -74,16 +86,6 @@ class CurrencyViewController: UIViewController, CurrencyDisplayLogic
         self.mostrarUsuario()
         self.fetchStatements()
     }
-  
-    // MARK: - Do something
-  
-    @IBOutlet weak var nameUserLabel: UILabel!
-    @IBOutlet weak var numberAccountLAbel: UILabel!
-    @IBOutlet weak var balanceUserLabel: UILabel!
-    @IBOutlet weak var currencyTableView: UITableView!
-    
-    //MARK: - Properties
-    var list_statements: [Currency.Statement] = []
     
     func setTableView(){
         // MARK: - TableView
@@ -99,8 +101,8 @@ class CurrencyViewController: UIViewController, CurrencyDisplayLogic
     func mostrarUsuario() {
         let user = self.interactor!.getUserAccount()
         self.nameUserLabel.text = user?.name
-        self.numberAccountLAbel.text = "\(user?.bankAccount ?? "") / \(user?.agency.maskAgency() ?? "")"
-        self.balanceUserLabel.text = String(format: "R$ %.02f", locale: Locale.current, arguments: [user!.balance])
+        self.numberAccountLAbel.text = "\(user?.bankAccount ?? "") / \(user?.agency?.maskAgency() ?? "")"
+        self.balanceUserLabel.text = String(format: "R$ %.02f", locale: Locale.current, arguments: [(user?.balance ?? 0)])
     }
     
     func fetchStatements() {

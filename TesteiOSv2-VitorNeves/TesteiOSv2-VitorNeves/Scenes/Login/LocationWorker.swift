@@ -13,59 +13,25 @@
 import UIKit
 import Alamofire
 
-typealias loginResponseHandler = (_ response:Location.Login.Response) ->()
+//MARK: - typealias
+typealias completionLogin = (Location.Login.Response?) ->Void
+//typealias failure = (Error) -> Void
 
 class LocationWorker
 {
-    
-//    static func getBank(onSuccess: @escaping (RepositoryResponse<[Bank]>?) -> Void, onFailure: @escaping (Error) -> Void ) {
-//        RequestManager.shared.get("\(Bank.endPoint)", model: RepositoryResponse<[Bank]>.self, onSuccess: { (result) in
-//            onSuccess(result)
-//        }, onFailure: { (error) in
-//            print("error: \(String(describing: error))")
-//            onFailure(error)
-//        })
-//    }
-    
-    func login(user:String!, password:String!, responseRequest:@escaping(loginResponseHandler)) {
-        //if verificaInternet() {
-            
-            Alamofire.request(Endpoints.Bank.Login.url,
-                              method: .post,
-                              parameters: ["user":user, "password":password],
-                              encoding: URLEncoding.default)
-                .responseJSON { dataResponse in
-                    switch dataResponse.result {
-                    case .success(let json):
-                        let response = json as! NSDictionary
-                        let error = response.object(forKey: "error") as? NSDictionary
-                        let userAccount = response.object(forKey: "userAccount") as? NSDictionary
-                        
-                        if userAccount?.count ?? 0 > 0 {
-                            responseRequest(Location.Login.Response(userAccount: Location.UserAccount(userId: userAccount?.object(forKey: "userId") as! Int,
-                                                                                                      name: userAccount?.object(forKey: "name") as! String,
-                                                                                                      bankAccount: userAccount?.object(forKey: "bankAccount") as! String,
-                                                                                                      agency: userAccount?.object(forKey: "agency") as! String,
-                                                                                                      balance: userAccount?.object(forKey: "balance") as! Double),
-                                                                    error: nil))
-                        }else if error?.count ?? 0 > 0 {
-                            responseRequest(Location.Login.Response(userAccount: nil,
-                                                                    error:Location.Error(code: error?.object(forKey: "code") as! Int,
-                                                                                         message: error?.object(forKey: "message") as! String)))
-                        } else {
-                            responseRequest(Location.Login.Response(userAccount: nil,
-                                                                    error:Location.Error(code: 0, message: "Ops! Ocorreu um erro ao contatar o servidor. Tente mais tarde.")))
-                        }
-                        break
-                    case .failure( _):
-                        responseRequest(Location.Login.Response(userAccount: nil,
-                                                                error:Location.Error(code: 0, message: "Ops! Ocorreu um erro ao contatar o servidor. Tente mais tarde.")))
-                        break
-                    }
-            }
-//        } else {
-//            responseRequest(Location.Login.Response(userAccount: nil,
-//                                                    error:Location.Error(code: 0, message: "Sem conexão com a internet.")))
-//        }
+    func login(user:String!, password:String!, completion:@escaping(completionLogin), failure: @escaping(failure)) {
+        
+        let parameters: Parameters = [
+        "user": user,
+        "password": password
+        ]
+        
+        RequestManager.shared.post("\(APISession.APIEndPoint)/login", model: Location.Login.Response.self, params: parameters, completion: { (loginResponse) in
+            print(loginResponse)
+            completion(loginResponse)
+        }) { (error) in
+            print(error.localizedDescription)
+            failure(error)
+        }
     }
 }
