@@ -1,24 +1,20 @@
 PODS:
   - Alamofire (4.8.1)
   - SVProgressHUD (2.2.5)
-  - Tailor (3.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - SVProgressHUD
-  - Tailor
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - SVProgressHUD
-    - Tailor
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  Tailor: 4fb574e8815d076abbf2bd7ffdbf4b14103fe17c
 
-PODFILE CHECKSUM: 415d026eb6f2aaef3e6a73a272b6d4cf0edecee4
+PODFILE CHECKSUM: c8abe46b5a6795fd6346880fa55635cb7b32a765
 
 COCOAPODS: 1.5.3
